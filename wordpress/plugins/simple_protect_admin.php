@@ -96,11 +96,21 @@ if (is_user_logged_in()) {
   if (!is_admin()) {
     // ログイン後、サイト画面の管理バーを非表示にする
     add_filter('show_admin_bar', '__return_false');
-  } elseif (!current_user_can('manage_options')) {
-    // 管理者権限が無いユーザーが管理画面にアクセスしたら、処理を強制終了し、ホーム画面に強制リダイレクト
-    ob_end_clean();
-    header('Location: '.site_url());
-    exit;
+  } else {
+    if (!function_exists('simple_protect_admin_force_redirect')) {
+      /**
+       * 管理者権限が無いユーザーが管理画面にアクセスしたら、処理を強制終了し、ホーム画面に強制リダイレクト
+       * @return void
+       */
+      function simple_protect_admin_force_redirect(): void {
+        if (!current_user_can('manage_options')) {
+          ob_end_clean();
+          header( 'Location: ' . site_url() );
+          exit;
+        }
+      }
+    }
+    add_action('wp_loaded', 'simple_protect_admin_force_redirect');
   }
 }
 
