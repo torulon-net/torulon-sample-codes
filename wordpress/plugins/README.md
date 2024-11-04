@@ -91,6 +91,9 @@ if (!defined('ABSPATH')) {
 
 ## サンプルプラグイン一覧
 
-[torulon_sample_plugin](./torulon_sample_plugin) : プラグイン新規作成の基本サンプル
+- [torulon_sample_plugin](./torulon_sample_plugin) : プラグイン新規作成の基本サンプル
+- [simple_protect_admin.php](./simple_protect_admin.php) : 管理画面アクセスに制限をかける
+> [!IMPORTANT]
+> simple_protect_admin.phpの有効化にはファイルの書き込み権限が必要
 
 ---

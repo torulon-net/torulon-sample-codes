@@ -20,8 +20,9 @@ torulon@torulon.net
 
 ## 目次
 
-* [Wordpress](./wordpress)
+* [wordpress](./wordpress)
   * [plugins](./wordpress/plugins)
     * [torulon_sample_plugin](./wordpress/plugins/torulon_sample_plugin)
+    * [simple_protect_admin.php](./wordpress/plugins/simple_protect_admin.php)
 
 ---
